@@ -1,16 +1,17 @@
 package src.game.models;
 
-import java.util.random.*;
+import src.game.constants.AppConstants;
+
 public class Player {
     private String name;
     private int health;
     private int strength;
     private int attack;
 
-    Player(String name,int strength,int attack)
+    public Player(String name,int strength,int attack)
     {
         this.name=name;
-        this.health=100;
+        this.health=AppConstants.MAX_HEALTH;
         this.strength=strength;
         this.attack=attack;
     }
@@ -46,6 +47,18 @@ public class Player {
     public void setAttack(int attack) {
         this.attack = attack;
     }
+
+
+    @Override
+    public String toString() {
+        return "{" +
+            " name='" + getName() + "'" +
+            ", health='" + getHealth() + "'" +
+            ", strength='" + getStrength() + "'" +
+            ", attack='" + getAttack() + "'" +
+            "}";
+    }
+   
 
     
 }
