@@ -1,7 +1,7 @@
 package src.main.java.models;
 
-import src.main.java.Service.GameService;
-import src.main.java.Service.GameServiceImpl;
+import src.main.java.service.GameService;
+import src.main.java.service.GameServiceImpl;
 import src.main.java.utilities.PlayerInfoPrinter;
 
 public class Game {

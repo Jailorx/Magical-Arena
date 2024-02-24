@@ -1,4 +1,4 @@
-package src.main.java.Service;
+package src.main.java.service;
 
 import src.main.java.models.Player;
 
