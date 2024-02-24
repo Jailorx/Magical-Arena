@@ -2,6 +2,7 @@ package src.main.java.Service;
 
 import src.main.java.constants.AppConstants;
 import src.main.java.models.Player;
+import src.main.java.utilities.PlayerInfoPrinter;
 import src.main.java.utilities.RandomNumberGenerator;
 
 public class GameService implements GameServiceImpl {
@@ -19,5 +20,33 @@ public class GameService implements GameServiceImpl {
     {
         int totalDamage=player.getHealth()-damage;
         player.setHealth(totalDamage);
+    }
+    public void playGame(Player attacker,Player defender)
+    {
+        while (attacker.getHealth() > 0 && defender.getHealth() > 0) {
+            System.out.println("Attacker " + attacker.getName() + " rolls the dice");
+            int attackerRoll = rollDice();
+            System.out.println("Defender " + defender.getName() + " rolls the dice");
+            int defenderRoll = rollDice();
+
+            int attackDamage = attacker.getAttack() * attackerRoll;
+            int defenderStrength = defender.getStrength() * defenderRoll;
+
+            System.out.println(attacker.getName() + " has an attack of " + attackDamage);
+            System.out.println(defender.getName() + " has a strength of " + defenderStrength);
+
+            int damage = Math.max(0, attackDamage - defenderStrength);
+            applyDamage(defender, damage);
+
+            
+            PlayerInfoPrinter.printScoreCard(attacker);
+            PlayerInfoPrinter.printScoreCard(defender);
+
+            Player temp = attacker;
+            attacker = defender;
+            defender = temp;
+        }
+
+        PlayerInfoPrinter.announceWinner(attacker);
     }
 }
