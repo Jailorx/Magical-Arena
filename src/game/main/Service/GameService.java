@@ -4,9 +4,9 @@ import src.game.main.constants.AppConstants;
 import src.game.main.models.Player;
 import src.game.main.utilities.RandomNumberGenerator;
 
-public class GameService {
+public class GameService implements GameServiceImpl {
     private RandomNumberGenerator random;
-    
+
     public GameService()
     {
         random=new RandomNumberGenerator();

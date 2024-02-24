@@ -1,25 +1,23 @@
 package src.game.main.models;
 
 import src.game.main.Service.GameService;
+import src.game.main.Service.GameServiceImpl;
 import src.game.main.utilities.PlayerInfoPrinter;
-import src.game.main.utilities.RandomNumberGenerator;
 
 public class Game {
     private Player[] players;
-    private RandomNumberGenerator random;
-    private GameService service;
+    private GameServiceImpl service;
 
     public Game(Player player1,Player player2)
     {
         this.players=new Player[]{player1,player2};
-        random=new RandomNumberGenerator();
         service=new GameService();
     }
 
     public void start()
     {
-        PlayerInfoPrinter.printScoreCard(players[0]);
-        PlayerInfoPrinter.printScoreCard(players[1]);
+        PlayerInfoPrinter.printPlayerStats(players[0]);
+        PlayerInfoPrinter.printPlayerStats(players[1]);
         playGame(players[0],players[1]);
     }
 

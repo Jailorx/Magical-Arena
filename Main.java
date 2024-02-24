@@ -8,26 +8,28 @@ import src.game.main.utilities.RandomNumberGenerator;
 class Main{
     public static void main(String[] args) {
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~WELCOME TO MAGICAL ARENA~~~~~~~~~~~~~~~~~~~~~~");
-        Scanner sc=new Scanner(System.in);
-        System.out.print("Player 1 enter your name: ");
-        String name1=sc.nextLine();
-        System.out.print("Player 2 enter your name: ");
-        String name2=sc.nextLine();
 
-        RandomNumberGenerator random=new RandomNumberGenerator();
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.print("Player 1 enter your name: ");
+            String name1 = sc.nextLine();
+            System.out.print("Player 2 enter your name: ");
+            String name2 = sc.nextLine();
 
-        int strength1=random.generateNumber(AppConstants.MAX_STRENGTH);
-        int attack1=random.generateNumber(AppConstants.MAX_ATTACK);
+            RandomNumberGenerator random = new RandomNumberGenerator();
 
-        int strength2=random.generateNumber(AppConstants.MAX_STRENGTH);
-        int attack2=random.generateNumber(AppConstants.MAX_ATTACK);
+            int strength1 = random.generateNumber(AppConstants.MAX_STRENGTH);
+            int attack1 = random.generateNumber(AppConstants.MAX_ATTACK);
 
-        Player player1 = new Player(name1,strength1,attack1);
-        Player player2=new Player(name2,strength2,attack2);
+            int strength2 = random.generateNumber(AppConstants.MAX_STRENGTH);
+            int attack2 = random.generateNumber(AppConstants.MAX_ATTACK);
 
-        Game game=new Game(player1, player2);
+            Player player1 = new Player(name1, strength1, attack1);
+            Player player2 = new Player(name2, strength2, attack2);
 
-        game.start();
+            Game game = new Game(player1, player2);
+
+            game.start();
+        }
 
     }
 }
