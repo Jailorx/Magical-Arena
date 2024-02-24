@@ -5,10 +5,14 @@ import src.main.java.models.Game;
 import src.main.java.models.Player;
 import src.main.java.validations.InputValidations;
 
+/*
+ * This class represents entry point of the Magical Arena Game
+ */
 class Main{
     public static void main(String[] args) {
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~WELCOME TO MAGICAL ARENA~~~~~~~~~~~~~~~~~~~~~~");
 
+        // Using try-with-resources to automatically close the Scanner
         try (Scanner sc = new Scanner(System.in)) {
             System.out.print("Player 1 enter your name: ");
             String name1 = sc.nextLine();
@@ -32,7 +36,6 @@ class Main{
 
             System.out.print("Enter attack for "+name2+" (1-"+AppConstants.MAX_ATTACK+"): ");
             attack2 = InputValidations.validateInput(sc,1,AppConstants.MAX_ATTACK);
-
 
             Player player1 = new Player(name1, strength1, attack1);
             Player player2 = new Player(name2, strength2, attack2);
