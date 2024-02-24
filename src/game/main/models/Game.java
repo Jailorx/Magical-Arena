@@ -1,9 +1,9 @@
-package src.game.models;
+package src.game.main.models;
 
-import java.io.IOException;
 import java.util.Random;
 
-import src.game.constants.AppConstants;
+import src.game.main.constants.AppConstants;
+import src.game.main.utilities.PlayerInfoPrinter;
 
 public class Game {
     private Player[] players;
@@ -14,10 +14,7 @@ public class Game {
         this.players=new Player[]{player1,player2};
         random=new Random();
     }
-    // public void printPlayers(){
-    //     for(Player p:players)
-    // System.out.println(p);
-    // }
+
     private int rollDice()
     {
         return 1+random.nextInt(AppConstants.MAX_DICE_VALUE);
@@ -31,12 +28,12 @@ public class Game {
 
     public void start()
     {
-        this.printScoreCard(players[0]);
-        this.printScoreCard(players[1]);
-        this.gameHelper(players[0],players[1]);
+        PlayerInfoPrinter.printScoreCard(players[0]);
+        PlayerInfoPrinter.printScoreCard(players[1]);
+        playGame(players[0],players[1]);
     }
 
-    private void gameHelper(Player attacker,Player defender)
+    private void playGame(Player attacker,Player defender)
     {
         while (attacker.getHealth() > 0 && defender.getHealth() > 0) {
             System.out.println("Attacker " + attacker.getName() + " rolls the dice");
@@ -53,30 +50,18 @@ public class Game {
             int damage = Math.max(0, attackDamage - defenderStrength);
             applyDamage(defender, damage);
 
-            printScoreCard(attacker);
-            printScoreCard(defender);
+            
+            PlayerInfoPrinter.printScoreCard(attacker);
+            PlayerInfoPrinter.printScoreCard(defender);
 
             Player temp = attacker;
             attacker = defender;
             defender = temp;
         }
 
-        announceWinner(attacker);
+        PlayerInfoPrinter.announceWinner(attacker);
     }
 
-    private void announceWinner(Player player)
-    {
-        System.out.println(player.getName()+" wins!!!");
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~GAME OVER~~~~~~~~~~~~~~~~~~~~~~");
-    }
-
-    private void printScoreCard(Player player)
-    {
-        System.out.println("------"+player.getName()+"-----");
-        int health=player.getHealth();
-        System.out.println("Health:"+(health<0?0:player.getHealth() ));
-        System.out.println("-------------------");
-    }
 
 
     

@@ -1,9 +1,9 @@
 import java.util.Random;
 import java.util.Scanner;
 
-import src.game.constants.AppConstants;
-import src.game.models.Game;
-import src.game.models.Player;
+import src.game.main.constants.AppConstants;
+import src.game.main.models.Game;
+import src.game.main.models.Player;
 
 class Main{
     public static void main(String[] args) {

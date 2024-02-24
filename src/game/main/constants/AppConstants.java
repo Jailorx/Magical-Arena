@@ -1,4 +1,4 @@
-package src.game.constants;
+package src.game.main.constants;
 
 public class AppConstants {
     public static final int MAX_HEALTH=100;

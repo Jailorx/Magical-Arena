@@ -1,6 +1,6 @@
-package src.game.models;
+package src.game.main.models;
 
-import src.game.constants.AppConstants;
+import src.game.main.constants.AppConstants;
 
 public class Player {
     private String name;
