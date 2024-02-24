@@ -1,23 +1,22 @@
 package src.game.main.models;
 
-import java.util.Random;
-
 import src.game.main.constants.AppConstants;
 import src.game.main.utilities.PlayerInfoPrinter;
+import src.game.main.utilities.RandomNumberGenerator;
 
 public class Game {
     private Player[] players;
-    private Random random;
+    private RandomNumberGenerator random;
 
     public Game(Player player1,Player player2)
     {
         this.players=new Player[]{player1,player2};
-        random=new Random();
+        random=new RandomNumberGenerator();
     }
 
     private int rollDice()
     {
-        return 1+random.nextInt(AppConstants.MAX_DICE_VALUE);
+        return random.generateNumber(AppConstants.MAX_DICE_VALUE);
     } 
 
     private void applyDamage(Player player,int damage)
