@@ -22,18 +22,11 @@ class Main{
         int strength2=random.nextInt(AppConstants.MAX_STRENGTH+1);
         int attack2=random.nextInt(AppConstants.MAX_ATTACK+1);
 
-        // Player player1 = new Player(name1,strength1,attack1);
-        // Player player2=new Player(name2,strength2,attack2);
-        Player player1 = new Player(name1,5,10);
-        Player player2=new Player(name2,10,5);
-
-        // System.out.println(player1);
-        // System.out.println(player2);
-
+        Player player1 = new Player(name1,strength1,attack1);
+        Player player2=new Player(name2,strength2,attack2);
 
         Game game=new Game(player1, player2);
 
-        // game.printPlayers();
         game.start();
 
     }
