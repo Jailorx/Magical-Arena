@@ -26,10 +26,14 @@ public class GameServiceImpl implements GameService {
     @Override
     public void playGame(Player attacker,Player defender)
     {
-        try{        
+        try{     
+            boolean newRound=true;   
             while (attacker.getHealth() > 0 && defender.getHealth() > 0) {
-                System.out.println("Begin round "+rounds);
-                System.out.println("Press Enter to Begin...");
+                if(newRound)
+                {
+                    System.out.println("Begin round "+rounds);
+                    System.out.println("Press Enter to Begin...");
+                }
         
                 System.in.read();
 
@@ -58,7 +62,13 @@ public class GameServiceImpl implements GameService {
                 Player temp = attacker;
                 attacker = defender;
                 defender = temp;
-                rounds++;
+                
+                newRound = !newRound;
+
+        
+                if (newRound) {
+                    rounds++;
+                }
             }     
     }catch(IOException io){
         System.out.println("exception occured:"+io.getMessage());
