@@ -13,6 +13,7 @@ import src.main.java.utilities.RandomNumberGenerator;
 
 public class GameService implements GameServiceImpl {
     private RandomNumberGenerator random;
+    int rounds=1;
     /**
      * Constructs a new {@code GameService} object.
      */
@@ -27,6 +28,9 @@ public class GameService implements GameServiceImpl {
         try{
             
             while (attacker.getHealth() > 0 && defender.getHealth() > 0) {
+                System.out.println("Begin round "+rounds);
+                System.out.println("Press Enter to Begin...");
+                System.out.println();
                 System.in.read();
 
                 System.out.println("Attacker " + attacker.getName() + " rolls the dice");
@@ -51,6 +55,7 @@ public class GameService implements GameServiceImpl {
                 Player temp = attacker;
                 attacker = defender;
                 defender = temp;
+                rounds++;
             }
 
             PlayerInfoPrinter.announceWinner(attacker);
