@@ -28,7 +28,20 @@ public class Game {
     {
         PlayerInfoPrinter.printPlayerStats(players[0]);
         PlayerInfoPrinter.printPlayerStats(players[1]);
-        service.playGame(players[0],players[1]);
+
+        Player attacker, defender;
+
+        // Determine attacker and defender based on health points
+        if (players[1].getHealth() > players[0].getHealth()) {
+            attacker = players[0];
+            defender = players[1];
+        } else {
+            attacker = players[1];
+            defender = players[0];
+        }
+
+        // Start the game with the determined attacker and defender
+        service.playGame(attacker, defender);
     }
 
     

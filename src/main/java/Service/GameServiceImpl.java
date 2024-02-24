@@ -30,7 +30,7 @@ public class GameServiceImpl implements GameService {
             while (attacker.getHealth() > 0 && defender.getHealth() > 0) {
                 System.out.println("Begin round "+rounds);
                 System.out.println("Press Enter to Begin...");
-                System.out.println();
+        
                 System.in.read();
 
                 System.out.println("Attacker " + attacker.getName() + " rolls the dice");
@@ -52,13 +52,14 @@ public class GameServiceImpl implements GameService {
                 PlayerInfoPrinter.printScoreCard(attacker);
                 PlayerInfoPrinter.printScoreCard(defender);
 
+                if(defender.getHealth()<=0)
+                PlayerInfoPrinter.announceWinner(attacker);
+
                 Player temp = attacker;
                 attacker = defender;
                 defender = temp;
                 rounds++;
-            }
-
-            PlayerInfoPrinter.announceWinner(attacker);
+            }     
     }catch(IOException io){
         System.out.println("exception occured:"+io.getMessage());
         }   

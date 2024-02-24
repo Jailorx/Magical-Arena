@@ -10,10 +10,10 @@ public class Player {
     private int strength;
     private int attack;
 
-    public Player(String name,int strength,int attack)
+    public Player(String name,int strength,int attack,int health)
     {
         this.name=name;
-        this.health=AppConstants.MAX_HEALTH;
+        this.health=health;
         this.strength=strength;
         this.attack=attack;
     }

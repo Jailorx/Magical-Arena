@@ -13,7 +13,7 @@ class Main{
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~WELCOME TO MAGICAL ARENA~~~~~~~~~~~~~~~~~~~~~~");
 
         String name1,name2;
-        int strength1,strength2,attack1,attack2;
+        int strength1,strength2,attack1,attack2,health1,health2;
 
         Scanner sc = new Scanner(System.in);
         System.out.print("Player 1 enter your name: ");
@@ -23,6 +23,9 @@ class Main{
         strength1=InputValidations.validateInput(sc,1,AppConstants.MAX_STRENGTH);
         System.out.print("Enter attack for "+name1+" (1-"+AppConstants.MAX_ATTACK+"): ");
         attack1 = InputValidations.validateInput(sc,1,AppConstants.MAX_ATTACK); 
+        System.out.print("Enter health for "+name1+" (1-"+AppConstants.MAX_HEALTH+"): ");
+        health1 = InputValidations.validateInput(sc,1,AppConstants.MAX_HEALTH); 
+
         sc.nextLine();
 
         System.out.print("Player 2 enter your name: ");
@@ -33,9 +36,11 @@ class Main{
 
         System.out.print("Enter attack for "+name2+" (1-"+AppConstants.MAX_ATTACK+"): ");
         attack2 = InputValidations.validateInput(sc,1,AppConstants.MAX_ATTACK);
+        System.out.print("Enter health for "+name2+" (1-"+AppConstants.MAX_HEALTH+"): ");
+        health2 = InputValidations.validateInput(sc,1,AppConstants.MAX_HEALTH);
             
-        Player player1 = new Player(name1, strength1, attack1);
-        Player player2 = new Player(name2, strength2, attack2); 
+        Player player1 = new Player(name1, strength1, attack1,health1);
+        Player player2 = new Player(name2, strength2, attack2,health2); 
         Game game = new Game(player1,player2);
         game.start();
         
