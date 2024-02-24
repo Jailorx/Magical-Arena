@@ -1,8 +1,8 @@
-package src.game.main.models;
+package src.main.java.models;
 
-import src.game.main.Service.GameService;
-import src.game.main.Service.GameServiceImpl;
-import src.game.main.utilities.PlayerInfoPrinter;
+import src.main.java.Service.GameService;
+import src.main.java.Service.GameServiceImpl;
+import src.main.java.utilities.PlayerInfoPrinter;
 
 public class Game {
     private Player[] players;

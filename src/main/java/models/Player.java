@@ -1,6 +1,6 @@
-package src.game.main.models;
+package src.main.java.models;
 
-import src.game.main.constants.AppConstants;
+import src.main.java.constants.AppConstants;
 
 public class Player {
     private String name;
@@ -47,18 +47,6 @@ public class Player {
     public void setAttack(int attack) {
         this.attack = attack;
     }
-
-
-    @Override
-    public String toString() {
-        return "{" +
-            " name='" + getName() + "'" +
-            ", health='" + getHealth() + "'" +
-            ", strength='" + getStrength() + "'" +
-            ", attack='" + getAttack() + "'" +
-            "}";
-    }
-   
 
     
 }

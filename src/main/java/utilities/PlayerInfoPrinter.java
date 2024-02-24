@@ -1,8 +1,9 @@
-package src.game.main.utilities;
+package src.main.java.utilities;
 
-import src.game.main.models.Player;
+import src.main.java.models.Player;
 
 public class PlayerInfoPrinter {
+
 
     static String lineBreak="-------------------";
 

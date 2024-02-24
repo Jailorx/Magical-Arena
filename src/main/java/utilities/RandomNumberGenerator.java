@@ -1,4 +1,4 @@
-package src.game.main.utilities;
+package src.main.java.utilities;
 
 import java.util.Random;
 
@@ -10,7 +10,7 @@ public class RandomNumberGenerator {
     }
 
     public int generateNumber(int upperBound) {
-        return random.nextInt(upperBound + 1);
+        return 1+random.nextInt(upperBound);
     }
 
 }
