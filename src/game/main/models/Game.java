@@ -1,28 +1,19 @@
 package src.game.main.models;
 
-import src.game.main.constants.AppConstants;
+import src.game.main.Service.GameService;
 import src.game.main.utilities.PlayerInfoPrinter;
 import src.game.main.utilities.RandomNumberGenerator;
 
 public class Game {
     private Player[] players;
     private RandomNumberGenerator random;
+    private GameService service;
 
     public Game(Player player1,Player player2)
     {
         this.players=new Player[]{player1,player2};
         random=new RandomNumberGenerator();
-    }
-
-    private int rollDice()
-    {
-        return random.generateNumber(AppConstants.MAX_DICE_VALUE);
-    } 
-
-    private void applyDamage(Player player,int damage)
-    {
-        int totalDamage=player.getHealth()-damage;
-        player.setHealth(totalDamage);
+        service=new GameService();
     }
 
     public void start()
@@ -36,9 +27,9 @@ public class Game {
     {
         while (attacker.getHealth() > 0 && defender.getHealth() > 0) {
             System.out.println("Attacker " + attacker.getName() + " rolls the dice");
-            int attackerRoll = rollDice();
+            int attackerRoll = service.rollDice();
             System.out.println("Defender " + defender.getName() + " rolls the dice");
-            int defenderRoll = rollDice();
+            int defenderRoll = service.rollDice();
 
             int attackDamage = attacker.getAttack() * attackerRoll;
             int defenderStrength = defender.getStrength() * defenderRoll;
@@ -47,7 +38,7 @@ public class Game {
             System.out.println(defender.getName() + " has a strength of " + defenderStrength);
 
             int damage = Math.max(0, attackDamage - defenderStrength);
-            applyDamage(defender, damage);
+            service.applyDamage(defender, damage);
 
             
             PlayerInfoPrinter.printScoreCard(attacker);
