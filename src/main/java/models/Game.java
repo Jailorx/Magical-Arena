@@ -9,7 +9,7 @@ import src.main.java.utilities.PlayerInfoPrinter;
  */
 public class Game {
     private Player[] players;
-    private GameServiceImpl service;
+    private GameService service;
 
     /*
      * Constructs a {@code Game} object
@@ -17,7 +17,8 @@ public class Game {
     public Game(Player player1,Player player2)
     {
         this.players=new Player[]{player1,player2};
-        service=new GameService();
+        this.service=new GameServiceImpl();
+        
     }
 
     /*
