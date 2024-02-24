@@ -43,7 +43,7 @@ public class GameServiceImpl implements GameService {
                 System.out.println(attacker.getName() + " has an attack of " + attackDamage);
 
                 System.out.println();
-
+                
                 System.out.println("Defender " + defender.getName() + " rolls the dice");
                 int defenderRoll = rollDice();
                 int defenderStrength = defender.getStrength() * defenderRoll;
