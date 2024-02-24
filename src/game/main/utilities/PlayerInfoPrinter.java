@@ -14,9 +14,9 @@ public class PlayerInfoPrinter {
     public static void printScoreCard(Player player)
     {
         System.out.println();
-        System.out.println("------"+player.getName()+"-----");
-        int health=player.getHealth();
-        System.out.println("Health:"+(health<0?0:player.getHealth() ));
+        System.out.println("------" + player.getName() + "-----");
+        int health = Math.max(0, player.getHealth());
+        System.out.println("Health: " + health);
         System.out.println("-------------------");
     }
 }
