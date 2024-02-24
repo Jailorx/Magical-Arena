@@ -5,22 +5,21 @@ import src.main.java.models.Player;
 import src.main.java.utilities.PlayerInfoPrinter;
 import src.main.java.utilities.RandomNumberGenerator;
 
+/*
+ * This class implements {@code GameServiceImpl} interface
+ */
+
 public class GameService implements GameServiceImpl {
     private RandomNumberGenerator random;
-
+    /**
+     * Constructs a new {@code GameService} object.
+     */
     public GameService()
     {
         random=new RandomNumberGenerator();
     }
-    public int rollDice()
-    {
-        return random.generateNumber(AppConstants.MAX_DICE_VALUE);
-    } 
-    public void applyDamage(Player player,int damage)
-    {
-        int totalDamage=player.getHealth()-damage;
-        player.setHealth(totalDamage);
-    }
+     
+    @Override
     public void playGame(Player attacker,Player defender)
     {
         while (attacker.getHealth() > 0 && defender.getHealth() > 0) {
@@ -49,4 +48,18 @@ public class GameService implements GameServiceImpl {
 
         PlayerInfoPrinter.announceWinner(attacker);
     }
+
+    @Override
+    public int rollDice()
+    {
+        return random.generateNumber(AppConstants.MAX_DICE_VALUE);
+    } 
+
+    @Override
+    public void applyDamage(Player player,int damage)
+    {
+        int totalDamage=player.getHealth()-damage;
+        player.setHealth(totalDamage);
+    }
+   
 }

@@ -2,11 +2,19 @@ package src.main.java.utilities;
 
 import src.main.java.models.Player;
 
+/*
+ * This class represents printing of player data
+ */
+
 public class PlayerInfoPrinter {
 
 
     static String lineBreak="-------------------";
 
+    /*
+     * Announces the player who wins the game
+     * @param player Player object who wins the game
+     */
     public static void announceWinner(Player player)
     {
         System.out.println();
@@ -14,6 +22,10 @@ public class PlayerInfoPrinter {
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~GAME OVER~~~~~~~~~~~~~~~~~~~~~~");
     }
 
+    /*
+     * Prints name and remaining health of the player
+     * @param player Player object whose scorecard has to be printed
+     */
     public static void printScoreCard(Player player)
     {
         System.out.println(lineBreak);
@@ -23,6 +35,10 @@ public class PlayerInfoPrinter {
         System.out.println(lineBreak);
     }
 
+    /*
+     * Prints stats of the player
+     * @param player The player object whose stats has to be printed
+     */
     public static void printPlayerStats(Player player)
     {
         System.out.println(lineBreak);

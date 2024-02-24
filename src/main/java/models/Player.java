@@ -1,7 +1,9 @@
 package src.main.java.models;
 
 import src.main.java.constants.AppConstants;
-
+/*
+ * This class Represents Player with its attributes
+ */
 public class Player {
     private String name;
     private int health;
