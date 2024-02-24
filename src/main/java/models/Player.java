@@ -1,6 +1,7 @@
 package src.main.java.models;
 
 import src.main.java.constants.AppConstants;
+
 /*
  * This class Represents Player with its attributes
  */
@@ -23,7 +24,7 @@ public class Player {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name==null?"John Doe":name;
     }
 
     public int getHealth() {
@@ -31,23 +32,20 @@ public class Player {
     }
 
     public void setHealth(int health) {
-        this.health = health;
+        if(health<0)
+        this.health=0;
+        else if(health>AppConstants.MAX_HEALTH)
+        this.health=AppConstants.MAX_HEALTH;
+        else
+        this.health=health;
     }
 
     public int getStrength() {
         return this.strength;
     }
 
-    public void setStrength(int strength) {
-        this.strength = strength;
-    }
-
     public int getAttack() {
         return this.attack;
-    }
-
-    public void setAttack(int attack) {
-        this.attack = attack;
     }
 
     
