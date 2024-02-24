@@ -12,21 +12,9 @@ Java
 
 2.Navigate to the project directory
 
-```bash
-  cd my-project
-```
+3.Open the folder in your IDE
 
-3.Compile the Java Source Code
-
-```bash
-  javac src/main/java/Main.java
-```
-
-4.Run the Application
-
-```bash
-  java -cp src/main/java Main
-```
+4.Run the application
 
 5.Follow the On-Screen Instructions
 
@@ -38,11 +26,11 @@ Java
 
 To run tests, follow these steps in the command line
 
-1.Compile the test class you want to run with the main class
+1.Compile the test class you want to run with the src main class
 
 ```bash
   javac src/main/java/<package_name>/<class_name>.java
-  javac src/test/java/<package_name>/<test_class_name>.java
+  javac src/test/java/<package_name>/<class_name>Test.java
 ```
 
 2.Run the test class
