@@ -57,7 +57,11 @@ public class GameServiceImpl implements GameService {
                 PlayerInfoPrinter.printScoreCard(defender);
 
                 if(defender.getHealth()<=0)
-                PlayerInfoPrinter.announceWinner(attacker);
+                {
+                    PlayerInfoPrinter.announceWinner(attacker);
+                    break;
+                }
+                
 
                 Player temp = attacker;
                 attacker = defender;

@@ -24,7 +24,7 @@ public class Player {
     }
 
     public void setName(String name) {
-        this.name = name==null?"John Doe":name;
+        this.name = name==null|| name==""?"John Doe":name;
     }
 
     public int getHealth() {

@@ -23,7 +23,10 @@ public class PlayerTest {
         // Test modified attributes
         System.out.println("Modified player name: " + player.getName());
         System.out.println("Modified player health: " + player.getHealth());
-       
+
+        //Modify player by setting it empty
+        player.setName("");
+        System.out.println("Empty name string: "+player.getName());
         // Test setting negative health
         player.setHealth(-10);
         System.out.println("Player health after setting negative value: " + player.getHealth());
